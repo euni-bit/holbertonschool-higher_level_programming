@@ -11,10 +11,10 @@ class Rectangle:
         Args:
              width (int): The width of the new rectangle.
              height (int): The height of the new rectangle.
-        """
-
+       """
+        
         self.height = height
-        self.width = width 
+        self.width = width
 
     @property
     def height(self):
@@ -28,6 +28,16 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """Return the area of Rectangle."""
+        return (self.__height * self.__width)
+
+    def perimeter(self):
+        """Return the perimeter of the Rectangle."""
+        if self.__height == 0 or self.__width == 0:
+            return (0)
+        return ((self.__height * 2) + (self.__width * 2))
 
     @property
     def width(self):
