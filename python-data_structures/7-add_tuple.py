@@ -2,10 +2,9 @@
 
 def add_tuple(tuple_a=(), tuple_b=()):
     """Add two tuples."""
-    def extend_tuple(t):
-        return t + (0,) * (2 - len(t))
+    # Extend tuples to have two elements each
+    tuple_a = tuple_a[:2] + (0,) * (2 - len(tuple_a))
+    tuple_b = tuple_b[:2] + (0,) * (2 - len(tuple_b))
     
-    tuple_a = extend_tuple(tuple_a)
-    tuple_b = extend_tuple(tuple_b)
-    
+    # Add corresponding elements of both tuples
     return (tuple_a[0] + tuple_b[0], tuple_a[1] + tuple_b[1])
