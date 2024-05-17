@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+""" A class that defines a square by: (based on 5-square.py)
+"""
+
+
+
 class Square:
     """Class Square that defines a square"""
 
