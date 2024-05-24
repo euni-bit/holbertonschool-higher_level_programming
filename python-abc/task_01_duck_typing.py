@@ -20,7 +20,7 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * 3.14 * self.radius
     
-class Ractangle(Shape):
+class Rectangle(Shape):
     def __init__(self, width, height):
         self.width = width
         self.height = height
