@@ -8,6 +8,6 @@ class Dog(Animal):
     def sound(self):
         return "Bark"
 
-class cat(Animal):
+class Cat(Animal):
     def sound(self):
         return "Meow"
