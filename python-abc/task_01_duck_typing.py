@@ -19,7 +19,8 @@ class Circle(Shape):
         return math.pi * self.radius**2
     
     def perimeter(self):
-        return 2 * math.pi * self.radius
+        radius = abs(self.radius)
+        return 2 * math.pi * radius
     
 class Rectangle(Shape):
     def __init__(self, width, height):
