@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -49,7 +49,7 @@ def add_user():
         "name": user_data.get('name'),
         "age": user_data.get('age'),
         "city": user_data.get('city')
-          }
+        }
         return jsonify({"message": "User added","user": users[username]}), 201
     
     except Exception as e:
