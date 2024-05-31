@@ -29,27 +29,32 @@ def get_user(username):
     user = users.get(username)
     if user:
         return jsonify(user)
-    else:
-        return jsonify({"error": "User not found"}), 404
+    return jsonify({"error": "User not found"}), 404
 
 # Endpoint to handle POST request and add new user
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    data = request.get_json()
-    username = data.get('username')
-    if username in users:
-        return jsonify({"error": "User already exists"}), 400
+    try:
+        user_data = request.get_json()
+        username = user_data.get('username')
 
-    users[username] = {
+        if not username:
+            return jsonify({"error": "Username is required"}), 404
+        
+        if username in users:
+            return jsonify({"error": "User already exists"}), 400
+        
+        users[username] = {
         "username": username,
-        "name": data.get('name'),
-        "age": data.get('age'),
-        "city": data.get('city')
-    }
-    return jsonify({
-        "message": "User added",
-        "user": users[username]
-    }), 201
+        "name": user_data.get('name'),
+        "age": user_data.get('age'),
+        "city": user_data.get('city')
+          }
+        return jsonify({"message": "User added","user": users[username]}), 201
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
 
 if __name__ == "__main__":
     app.run()
