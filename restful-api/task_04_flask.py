@@ -27,7 +27,7 @@ def get_status():
 
 @app.route('/data')
 def get_data():
-    return jsonify(list(users.keys)), 200
+    return jsonify(list(users.keys())), 200
 
 
 @app.route('/users/<username>')
